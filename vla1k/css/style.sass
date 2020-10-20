@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap')
+
+$accent: lighten(#000000, 40%)
+$black: lighten(#000000, 5%)
+$white: #ffffff
+$stripe: rgba($accent, .15)
+
+body
+	font-size: 16px
+	font-family: 'Ubuntu Condensed', serif-sans
+	color: $black
+p
+	margin-top: 0
+	margin-bottom: 1.4em
+a
+	color: $black
+
+progress, progress[role]
+	appearance: none
+	-moz-appearance: none
+	-webkit-appearance: none
+	border: none
+	background-size: auto
+progress[role]:after
+	background-image: none
+progress[role] strong 
+	display: none
+	
+.grid-container
+	padding: 4% 5%
+	margin-bottom: 32px
+	display: grid
+	column-gap: 3%
+	row-gap: 4%
+	align-content: center
+	grid-template-columns: repeat(3, 1fr)
+	grid-template-rows: auto
+	grid-template-areas: "about-me about-me social-links" "skills education education"
+
+.header
+	color: $white
+	height: 40%
+	padding: 48px 0
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	background: $accent url(../img/background.png) center / cover
+	.the-big-awesome-letter
+		font-size: 3em
+		padding: 18px
+		border: 1px solid $white
+	&__title
+		font-size: 3em
+		margin-top: 24px
+		margin-bottom: 10px
+	&__subtitle
+		font-size: 1.2em
+.section
+	padding: 32px 24px
+	border: 1px solid $accent
+	border-radius: 2px
+	&__heading
+		margin-bottom: .5em
+		font-size: 1.4em
+		font-weight: bold
+	&__subheading
+		font-size: 1.1em
+		font-weight: bold
+	&__icon
+		display: inline-block
+		position: relative
+		font-size: 2.8em
+		margin-bottom: 16px
+		&::after
+		   content: ''
+		   position: absolute
+		   bottom: 0
+		   left: 0
+		   height: 2px
+		   width: 50%
+		   border-radius: 2px
+		   background-color: $black
+	&__subicon
+		display: inline-block
+		position: relative
+		font-size: 1.8em
+		margin-bottom: 16px
+		&::after
+		   content: ''
+		   position: absolute
+		   bottom: 0
+		   left: 0
+		   height: 2px
+		   width: 50%
+		   border-radius: 2px
+		   background-color: $black
+	&.striped
+		background: repeating-linear-gradient(45deg, $stripe, $stripe 5px, $white 5px, $white 15px)
+	&.about-me
+		grid-area: about-me
+	&.contacts
+		grid-area: social-links
+		.round-img
+			background: url(https://sun9-36.userapi.com/c857420/v857420896/145dec/qCgHQ5HYDw8.jpg) center 100% / cover
+			width: 260px
+			height: 260px
+			border-radius: 50%
+			margin: 0 auto
+			border: 1px solid $black
+			margin-bottom: 1.4em
+		p
+			margin-bottom: .8em
+		.social-links
+			a
+				font-size: 1.6em
+				margin-right: 8px
+
+	&.skills
+		grid-area: skills
+		.skills__progress
+			span:nth-child(2)
+				float: right
+			.uk-progress
+				margin-top: 0
+				height: 4px
+				&::-webkit-progress-value
+					background: $black
+				&::-webkit-progress-bar
+					background: $accent
+
+	&.education
+		grid-area: education
+		.entry
+			margin-bottom: 2em
+		.education
+			&__heading
+				position: relative
+				font-weight: bold
+				font-size: 1.1em
+				&::before
+					content: ''
+					width: 18px
+					height: 18px
+					border: 1px solid $accent
+					background-color: $white
+					outline: 3px solid $white
+					position: absolute
+					left: -34px
+					top: 4px
+					border-radius: 50%
+			&__subheading
